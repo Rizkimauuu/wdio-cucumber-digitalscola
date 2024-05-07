@@ -53,9 +53,21 @@ exports.config = {
     //
     
     capabilities: [{
-        // capabilities for local browser web tests
-        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
+        myChromeBrowser: {
+            capabilities: {
+                browserName: 'chrome'
+            }
+        },
+        myMicrosoftEdgeBrowser: {
+            capabilities: {
+                browserName: 'microsoftedge'
+            }
+        }
     }],
+	//capabilities: [{
+        // capabilities for local browser web tests
+       // browserName: 'microsoftedge' // or "firefox", "microsoftedge", "safari"
+   // }],
 
     //
     // ===================
@@ -258,13 +270,14 @@ exports.config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {object}             context          Cucumber World object
      */
-    afterStep: async function (step, scenario, result, context) {
+	afterStep: async function (step, scenario, result, context) {
         console.log("executed di after step 1")
         if (result.passed) {
             console.log("executed di after step 2")
             await browser.saveScreenshot('./screenshot/failed-test.png')
         }
     },
+    
     /**
      *
      * Runs after a Cucumber Scenario.

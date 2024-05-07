@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('@wdio/cucumber-framework');
-const { browser } = require('@wdio/globals')
+const { browser,$ } = require('@wdio/globals')
 
 const SauceLoginPage = require('../pageobjects/sauce-login.page');
 const DashboardPage = require('../pageobjects/sauce-dashboard.page');
